@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rafael Almeida — Card Digital</title>
+
+    <meta
+        name="description"
+        content="Demonstração de Card Digital VTURBO."
+    >
+
+    <meta name="robots" content="noindex, follow">
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="../favicon.svg"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #030303;
+            --card: #0b0b0b;
+            --card2: #111;
+
+            --white: #fff;
+            --gray: #858585;
+            --gray2: #555;
+
+            --blue: #1769ff;
+            --cyan: #43d9ff;
+            --green: #25d366;
+
+            --border: #242424;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(23,105,255,.18),
+                    transparent 38%
+                ),
+                #000;
+
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            padding:
+                20px
+                15px
+                40px;
+        }
+
+        .page {
+            width: min(460px,100%);
+            margin: auto;
+        }
+
+        /* TOPO */
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 14px;
+        }
+
+        .top a {
+            color: #666;
+
+            font-size: 10px;
+
+            text-decoration: none;
+        }
+
+        .demo-label {
+            padding: 6px 9px;
+
+            border:
+                1px solid
+                #252525;
+
+            border-radius: 50px;
+
+            color: #777;
+
+            font-size: 8px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* PERFIL */
+
+        .profile {
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                42px
+                20px
+                28px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                25px
+                25px
+                0
+                0;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0,
+                    rgba(23,105,255,.2),
+                    transparent 48%
+                ),
+                linear-gradient(
+                    145deg,
+                    #111,
+                    #070707
+                );
+        }
+
+        .profile::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            top: -130px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 50%;
+
+            background: rgba(67,217,255,.1);
+
+            filter: blur(30px);
+        }
+
+        .avatar {
+            position: relative;
+
+            width: 94px;
+            height: 94px;
+
+            margin: auto;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--cyan)
+                );
+
+            font-size: 32px;
+            font-weight: 900;
+
+            box-shadow:
+                0 18px 50px
+                rgba(23,105,255,.28);
+        }
+
+        .verified {
+            position: absolute;
+
+            right: -2px;
+            bottom: 4px;
+
+            width: 25px;
+            height: 25px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                3px solid
+                #0b0b0b;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+
+            font-size: 10px;
+        }
+
+        .profile h1 {
+            margin-top: 18px;
+
+            font-size: 25px;
+
+            letter-spacing: -.5px;
+        }
+
+        .profession {
+            margin-top: 4px;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+        .location {
+            margin-top: 12px;
+
+            color: #555;
+
+            font-size: 10px;
+        }
+
+        /* BOTÕES */
+
+        .actions {
+            display: grid;
+            gap: 9px;
+
+            padding: 15px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-top: 0;
+
+            background: #080808;
+        }
+
+        .action {
+            min-height: 49px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                #252525;
+
+            border-radius: 10px;
+
+            background: #111;
+
+            color: #aaa;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            text-decoration: none;
+
+            transition: .2s;
+        }
+
+        .action:hover {
+            transform: translateY(-2px);
+
+            border-color: #3b3b3b;
+        }
+
+        .action.whatsapp {
+            background: var(--green);
+            border-color: var(--green);
+            color: #fff;
+        }
+
+        /* BLOCOS */
+
+        .section {
+            margin-top: 12px;
+
+            padding: 23px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 17px;
+
+            background: var(--card);
+        }
+
+        .section h2 {
+            font-size: 16px;
+        }
+
+        .section-intro {
+            margin-top: 7px;
+
+            color: #6d6d6d;
+
+            font-size: 11px;
+        }
+
+        /* SOBRE */
+
+        .about {
+            margin-top: 16px;
+
+            color: #aaa;
+
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* SERVIÇOS */
+
+        .services {
+            display: grid;
+            gap: 8px;
+
+            margin-top: 17px;
+        }
+
+        .service {
+            padding: 14px;
+
+            border:
+                1px solid
+                #202020;
+
+            border-radius: 10px;
+
+            background: #101010;
+        }
+
+        .service strong {
+            display: block;
+
+            font-size: 12px;
+        }
+
+        .service span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: #616161;
+
+            font-size: 10px;
+        }
+
+        /* DESTAQUE */
+
+        .highlight {
+            margin-top: 12px;
+
+            padding: 22px;
+
+            border:
+                1px solid
+                #164a9b;
+
+            border-radius: 17px;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0,
+                    rgba(23,105,255,.16),
+                    transparent 55%
+                ),
+                #090909;
+        }
+
+        .highlight small {
+            color: #4da2ff;
+
+            font-size: 8px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .highlight h2 {
+            margin-top: 8px;
+
+            font-size: 20px;
+        }
+
+        .highlight p {
+            margin-top: 7px;
+
+            color: #707070;
+
+            font-size: 11px;
+        }
+
+        /* REDES */
+
+        .socials {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 8px;
+
+            margin-top: 17px;
+        }
+
+        .social {
+            padding: 13px;
+
+            border:
+                1px solid
+                #222;
+
+            border-radius: 9px;
+
+            background: #101010;
+
+            color: #999;
+
+            text-align: center;
+
+            font-size: 10px;
+
+            text-decoration: none;
+
+            transition: .2s;
+        }
+
+        .social:hover {
+            border-color: #3a3a3a;
+            color: #fff;
+        }
+
+        /* CONTATO */
+
+        .contact {
+            display: grid;
+            gap: 8px;
+
+            margin-top: 16px;
+        }
+
+        .contact a {
+            padding: 13px;
+
+            border:
+                1px solid
+                #222;
+
+            border-radius: 9px;
+
+            color: #999;
+
+            font-size: 10px;
+
+            text-decoration: none;
+        }
+
+        /* RODAPÉ */
+
+        .footer {
+            padding:
+                28px
+                10px
+                5px;
+
+            text-align: center;
+
+            color: #414141;
+
+            font-size: 9px;
+        }
+
+        .footer a {
+            color: #666;
+        }
+
+        .footer-credit {
+            margin-top: 8px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="top">
+
+        <a href="../index.html">
+            ← VTURBO
+        </a>
+
+        <span class="demo-label">
+            Demonstração
+        </span>
+
+    </div>
+
+
+    <!-- PERFIL -->
+
+    <section class="profile">
+
+        <div class="avatar">
+
+            R
+
+            <span class="verified">
+                ✓
+            </span>
+
+        </div>
+
+        <h1>
+            Rafael Almeida
+        </h1>
+
+        <p class="profession">
+            Consultor de Negócios
+        </p>
+
+        <p class="location">
+            📍 Curitiba — PR
+        </p>
+
+    </section>
+
+
+    <!-- AÇÕES -->
+
+    <div class="actions">
+
+        <a
+            href="https://wa.me/5541849948782"
+            target="_blank"
+            class="action whatsapp"
+        >
+            💬 Falar comigo pelo WhatsApp
+        </a>
+
+        <a
+            href="tel:+5541849948782"
+            class="action"
+        >
+            📞 Ligar agora
+        </a>
+
+        <a
+            href="mailto:contato@vturbo.com.br"
+            class="action"
+        >
+            ✉️ Enviar e-mail
+        </a>
+
+    </div>
+
+
+    <!-- SOBRE -->
+
+    <section class="section">
+
+        <h2>
+            Sobre mim
+        </h2>
+
+        <p class="about">
+            Trabalho ao lado de empresas e profissionais
+            que buscam novas oportunidades, organização
+            e estratégias para crescer.
+        </p>
+
+    </section>
+
+
+    <!-- SERVIÇOS -->
+
+    <section class="section">
+
+        <h2>
+            Como posso ajudar
+        </h2>
+
+        <p class="section-intro">
+            Soluções personalizadas para diferentes desafios.
+        </p>
+
+        <div class="services">
+
+            <div class="service">
+
+                <strong>
+                    Consultoria empresarial
+                </strong>
+
+                <span>
+                    Estratégias personalizadas para seu negócio.
+                </span>
+
+            </div>
+
+            <div class="service">
+
+                <strong>
+                    Planejamento estratégico
+                </strong>
+
+                <span>
+                    Organização de metas e oportunidades.
+                </span>
+
+            </div>
+
+            <div class="service">
+
+                <strong>
+                    Análise de negócios
+                </strong>
+
+                <span>
+                    Identificação de oportunidades de crescimento.
+                </span>
+
+            </div>
+
+            <div class="service">
+
+                <strong>
+                    Desenvolvimento comercial
+                </strong>
+
+                <span>
+                    Estruturação de novas possibilidades.
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DESTAQUE -->
+
+    <div class="highlight">
+
+        <small>
+            Vamos conversar?
+        </small>
+
+        <h2>
+            Talvez o próximo passo
+            comece por uma conversa.
+        </h2>
+
+        <p>
+            Entre em contato pelo WhatsApp e vamos entender
+            como posso ajudar.
+        </p>
+
+        <div style="margin-top:18px;">
+
+            <a
+                href="https://wa.me/5541849948782"
+                target="_blank"
+                class="action whatsapp"
+            >
+                Quero conversar →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- REDES -->
+
+    <section class="section">
+
+        <h2>
+            Também estou por aqui
+        </h2>
+
+        <div class="socials">
+
+            <a href="#" class="social">
+                Instagram
+            </a>
+
+            <a href="#" class="social">
+                LinkedIn
+            </a>
+
+            <a href="#" class="social">
+                Facebook
+            </a>
+
+            <a href="#" class="social">
+                Website
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTATO -->
+
+    <section class="section">
+
+        <h2>
+            Contato
+        </h2>
+
+        <div class="contact">
+
+            <a href="tel:+5541849948782">
+                📞 (41) 84994-8782
+            </a>
+
+            <a href="mailto:contato@vturbo.com.br">
+                ✉️ contato@vturbo.com.br
+            </a>
+
+            <a href="#">
+                📍 Curitiba — Paraná
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <p>
+            Este Card Digital é uma demonstração da VTURBO.
+        </p>
+
+        <p class="footer-credit">
+
+            Criado por
+            <a href="../index.html">
+                VTURBO
+            </a>
+
+        </p>
+
+        <p class="footer-credit">
+
+            <a
+                href="https://multipagemel.pages.dev/"
+                target="_blank"
+            >
+                Multipage Mel - Criação de Sites
+            </a>
+
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
