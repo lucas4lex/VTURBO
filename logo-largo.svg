@@ -1,0 +1,50 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 420 100"
+>
+
+    <defs>
+
+        <linearGradient
+            id="logoGradient"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="1"
+        >
+            <stop offset="0" stop-color="#1769ff"/>
+            <stop offset="1" stop-color="#43d9ff"/>
+        </linearGradient>
+
+    </defs>
+
+
+    <rect
+        x="5"
+        y="10"
+        width="80"
+        height="80"
+        rx="20"
+        fill="url(#logoGradient)"
+    />
+
+
+    <path
+        d="M23 28h44v11H52v34H40V39H23z"
+        fill="#fff"
+    />
+
+
+    <text
+        x="105"
+        y="67"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="48"
+        font-weight="900"
+        letter-spacing="-2"
+        fill="#ffffff"
+    >
+        VTURBO
+    </text>
+
+</svg>

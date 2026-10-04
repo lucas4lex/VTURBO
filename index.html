@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VTURBO — Sua marca merece uma presença à altura</title>
+
+    <meta name="description" content="A VTURBO cria Cards Digitais, Landing Pages e Sites Premium para transformar sua presença digital em uma experiência profissional.">
+    <meta name="keywords" content="VTURBO, card digital, cartão digital, landing page, site premium, criação de sites">
+    <meta name="author" content="VTURBO">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VTURBO — Sua marca merece uma presença à altura">
+    <meta property="og:description" content="Seu nome, sua marca, seus serviços e seus contatos em uma experiência digital profissional.">
+    <meta property="og:image" content="imagem-og.svg">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000;
+            --black-1: #030303;
+            --black-2: #070707;
+            --black-3: #0d0d0d;
+
+            --white: #fff;
+            --soft: #e9e9e9;
+
+            --gray: #888;
+            --gray-dark: #555;
+
+            --blue: #1769ff;
+            --blue-2: #3285ff;
+            --cyan: #46ddff;
+
+            --green: #25d366;
+
+            --border: rgba(255,255,255,.09);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 36px));
+            margin: auto;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: fixed;
+            z-index: 1000;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            background: rgba(0,0,0,.72);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,.06);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .header {
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 140px;
+            display: block;
+        }
+
+        .logo img {
+            width: 100%;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #8b8b8b;
+            font-size: 12px;
+            transition: .25s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .nav-cta {
+            padding: 11px 17px;
+
+            border-radius: 8px;
+
+            background: #fff;
+            color: #000 !important;
+
+            font-weight: 800;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+
+            padding:
+                145px
+                0
+                95px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 18%,
+                    rgba(23,105,255,.18),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 5% 85%,
+                    rgba(70,221,255,.07),
+                    transparent 25%
+                ),
+                #000;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            top: -350px;
+            right: -300px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.045);
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 900px;
+            height: 1px;
+
+            left: 50%;
+            bottom: 0;
+
+            transform: translateX(-50%);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.1),
+                    transparent
+                );
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr
+                .95fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 13px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 100px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            color: #aaa;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+        }
+
+        .eyebrow i {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--cyan);
+
+            box-shadow:
+                0 0 18px
+                var(--cyan);
+        }
+
+        .hero h1 {
+            max-width: 790px;
+
+            margin-top: 25px;
+
+            font-size:
+                clamp(
+                    49px,
+                    7vw,
+                    84px
+                );
+
+            line-height: .94;
+
+            letter-spacing: -5px;
+        }
+
+        .hero h1 .blue {
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #4ba9ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-text {
+            max-width: 620px;
+
+            margin-top: 27px;
+
+            color: #858585;
+
+            font-size: 16px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 11px;
+
+            margin-top: 32px;
+        }
+
+        .button {
+            min-height: 50px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 21px;
+
+            border-radius: 9px;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            transition:
+                transform .25s,
+                background .25s,
+                border .25s;
+        }
+
+        .button-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 45px
+                rgba(255,255,255,.12);
+        }
+
+        .button-secondary {
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            background: #070707;
+            color: #fff;
+        }
+
+        .button-secondary:hover {
+            border-color: #444;
+            background: #0d0d0d;
+        }
+
+        .hero-proof {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 25px;
+
+            margin-top: 38px;
+        }
+
+        .proof {
+            padding-left: 13px;
+
+            border-left:
+                1px solid
+                #292929;
+        }
+
+        .proof strong {
+            display: block;
+
+            font-size: 17px;
+        }
+
+        .proof span {
+            color: #555;
+
+            font-size: 10px;
+        }
+
+        /* =====================================================
+           HERO MOCKUP
+        ===================================================== */
+
+        .visual {
+            min-height: 560px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-glow {
+            position: absolute;
+
+            width: 360px;
+            height: 360px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(23,105,255,.15);
+
+            filter: blur(75px);
+        }
+
+        .floating-label {
+            position: absolute;
+            z-index: 5;
+
+            padding: 10px 13px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
+            border-radius: 9px;
+
+            background:
+                rgba(12,12,12,.9);
+
+            color: #999;
+
+            font-size: 10px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.5);
+
+            animation:
+                floatLabel
+                4s
+                ease-in-out
+                infinite;
+        }
+
+        .floating-label.one {
+            top: 90px;
+            left: 10px;
+        }
+
+        .floating-label.two {
+            right: 5px;
+            bottom: 105px;
+
+            animation-delay: 1.3s;
+        }
+
+        @keyframes floatLabel {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+        .device {
+            position: relative;
+            z-index: 3;
+
+            width: 305px;
+
+            padding: 9px;
+
+            border:
+                1px solid
+                #292929;
+
+            border-radius: 42px;
+
+            background: #141414;
+
+            box-shadow:
+                0 50px 100px
+                rgba(0,0,0,.75),
+                0 0 90px
+                rgba(23,105,255,.12);
+
+            transform:
+                rotate(4deg);
+
+            animation:
+                phoneFloat
+                5s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes phoneFloat {
+
+            0%,
+            100% {
+                transform:
+                    rotate(4deg)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    rotate(2deg)
+                    translateY(-12px);
+            }
+
+        }
+
+        .device-screen {
+            min-height: 570px;
+
+            overflow: hidden;
+
+            border-radius: 34px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0,
+                    rgba(23,105,255,.25),
+                    transparent 35%
+                ),
+                #080808;
+        }
+
+        .device-top {
+            padding: 35px 20px 22px;
+
+            text-align: center;
+        }
+
+        .device-avatar {
+            width: 76px;
+            height: 76px;
+
+            display: grid;
+            place-items: center;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--cyan)
+                );
+
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .device-top h3 {
+            margin-top: 13px;
+            font-size: 18px;
+        }
+
+        .device-top p {
+            color: #666;
+            font-size: 10px;
+        }
+
+        .device-buttons {
+            display: grid;
+            gap: 8px;
+
+            padding: 0 16px 20px;
+        }
+
+        .device-button {
+            padding: 12px;
+
+            border:
+                1px solid
+                #252525;
+
+            border-radius: 9px;
+
+            background: #101010;
+
+            color: #999;
+
+            text-align: center;
+
+            font-size: 10px;
+        }
+
+        .device-button.primary {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white;
+        }
+
+        .demo-pill {
+            position: absolute;
+
+            z-index: 6;
+
+            bottom: 45px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            white-space: nowrap;
+
+            padding: 12px 17px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.12);
+
+            border-radius: 100px;
+
+            background:
+                rgba(0,0,0,.8);
+
+            color: #ddd;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            backdrop-filter: blur(12px);
+        }
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        section {
+            padding: 115px 0;
+        }
+
+        .dark {
+            background: #050505;
+
+            border-top:
+                1px solid
+                #141414;
+
+            border-bottom:
+                1px solid
+                #141414;
+        }
+
+        .section-heading {
+            max-width: 760px;
+
+            margin-bottom: 55px;
+        }
+
+        .label {
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: #429cff;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size:
+                clamp(
+                    38px,
+                    5vw,
+                    63px
+                );
+
+            line-height: .98;
+
+            letter-spacing: -3px;
+        }
+
+        .section-heading p {
+            margin-top: 19px;
+
+            color: #777;
+
+            font-size: 15px;
+        }
+
+        /* =====================================================
+           TCHAN / FRASE
+        ===================================================== */
+
+        .statement {
+            min-height: 80vh;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 50%,
+                    rgba(23,105,255,.08),
+                    transparent 35%
+                );
+        }
+
+        .statement-inner {
+            text-align: center;
+        }
+
+        .statement small {
+            color: #4b9dff;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .statement h2 {
+            max-width: 1050px;
+
+            margin: 25px auto 0;
+
+            font-size:
+                clamp(
+                    45px,
+                    7vw,
+                    84px
+                );
+
+            line-height: .95;
+
+            letter-spacing: -5px;
+        }
+
+        .statement h2 span {
+            color: #555;
+        }
+
+        .statement p {
+            max-width: 610px;
+
+            margin: 25px auto 0;
+
+            color: #777;
+
+            font-size: 15px;
+        }
+
+        /* =====================================================
+           EXPERIÊNCIA
+        ===================================================== */
+
+        .experience {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .experience-copy h2 {
+            font-size:
+                clamp(
+                    40px,
+                    5vw,
+                    62px
+                );
+
+            line-height: .98;
+
+            letter-spacing: -3px;
+        }
+
+        .experience-copy p {
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        .experience-list {
+            display: grid;
+            gap: 13px;
+
+            margin-top: 28px;
+
+            list-style: none;
+        }
+
+        .experience-list li {
+            display: flex;
+            gap: 10px;
+
+            color: #aaa;
+
+            font-size: 13px;
+        }
+
+        .experience-list li::before {
+            content: "✓";
+
+            color: var(--cyan);
+
+            font-weight: 900;
+        }
+
+        .journey {
+            padding: 14px;
+
+            border:
+                1px solid
+                #222;
+
+            border-radius: 22px;
+
+            background: #090909;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,.4);
+        }
+
+        .journey-screen {
+            min-height: 450px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #101010,
+                    #050505
+                );
+        }
+
+        .journey-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding-bottom: 20px;
+
+            border-bottom:
+                1px solid
+                #1d1d1d;
+        }
+
+        .journey-title strong {
+            font-size: 13px;
+        }
+
+        .journey-title span {
+            color: #555;
+            font-size: 9px;
+        }
+
+        .journey-step {
+            display: grid;
+
+            grid-template-columns:
+                45px
+                1fr;
+
+            gap: 14px;
+
+            padding: 22px 0;
+
+            border-bottom:
+                1px solid
+                #171717;
+        }
+
+        .journey-icon {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+
+            background: #111;
+
+            border:
+                1px solid
+                #252525;
+        }
+
+        .journey-step h4 {
+            font-size: 13px;
+        }
+
+        .journey-step p {
+            margin-top: 3px;
+
+            color: #5e5e5e;
+
+            font-size: 10px;
+        }
+
+        /* =====================================================
+           BENEFÍCIOS
+        ===================================================== */
+
+        .benefits {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 14px;
+        }
+
+        .benefit {
+            min-height: 210px;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                #1d1d1d;
+
+            border-radius: 15px;
+
+            background: #080808;
+
+            transition: .25s;
+        }
+
+        .benefit:hover {
+            transform: translateY(-5px);
+            border-color: #353535;
+        }
+
+        .benefit-icon {
+            width: 44px;
+            height: 44px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 18px;
+
+            border:
+                1px solid
+                #252525;
+
+            border-radius: 10px;
+
+            background: #111;
+        }
+
+        .benefit h3 {
+            font-size: 17px;
+        }
+
+        .benefit p {
+            margin-top: 7px;
+
+            color: #6c6c6c;
+
+            font-size: 13px;
+        }
+
+        /* =====================================================
+           PRODUTOS
+        ===================================================== */
+
+        .products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 15px;
+        }
+
+        .product {
+            position: relative;
+
+            padding: 32px;
+
+            border:
+                1px solid
+                #222;
+
+            border-radius: 17px;
+
+            background: #080808;
+        }
+
+        .product.featured {
+            border-color: #1d5fc9;
+
+            background:
+                radial-gradient(
+                    circle at 100% 0,
+                    rgba(23,105,255,.17),
+                    transparent 40%
+                ),
+                #090909;
+        }
+
+        .badge {
+            position: absolute;
+
+            top: 17px;
+            right: 17px;
+
+            padding: 6px 9px;
+
+            border-radius: 5px;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-size: 8px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+        .product small {
+            color: #626262;
+
+            font-size: 9px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .product h3 {
+            margin-top: 10px;
+
+            font-size: 25px;
+        }
+
+        .product-description {
+            min-height: 66px;
+
+            margin-top: 7px;
+
+            color: #707070;
+
+            font-size: 12px;
+        }
+
+        .price {
+            margin-top: 18px;
+
+            font-size: 40px;
+            font-weight: 900;
+
+            letter-spacing: -2px;
+        }
+
+        .price span {
+            color: #555;
+
+            font-size: 10px;
+            font-weight: 400;
+
+            letter-spacing: 0;
+        }
+
+        .product ul {
+            display: grid;
+            gap: 9px;
+
+            margin: 23px 0;
+
+            list-style: none;
+        }
+
+        .product li {
+            color: #999;
+
+            font-size: 12px;
+        }
+
+        .product li::before {
+            content: "✓";
+
+            margin-right: 8px;
+
+            color: var(--blue);
+        }
+
+        .product .button {
+            width: 100%;
+        }
+
+        /* =====================================================
+           PROCESSO
+        ===================================================== */
+
+        .process {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 15px;
+        }
+
+        .step {
+            padding-top: 27px;
+
+            border-top:
+                1px solid
+                #292929;
+        }
+
+        .step-number {
+            color: #439cff;
+
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .step h3 {
+            margin-top: 15px;
+
+            font-size: 18px;
+        }
+
+        .step p {
+            margin-top: 7px;
+
+            color: #686868;
+
+            font-size: 12px;
+        }
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+            padding: 110px 0;
+        }
+
+        .cta-box {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 85px 30px;
+
+            border:
+                1px solid
+                #234d8d;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0,
+                    rgba(23,105,255,.23),
+                    transparent 45%
+                ),
+                #080808;
+        }
+
+        .cta-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            top: -170px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 50%;
+
+            background: rgba(67,217,255,.08);
+
+            filter: blur(30px);
+        }
+
+        .cta-box h2 {
+            position: relative;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size:
+                clamp(
+                    40px,
+                    6vw,
+                    68px
+                );
+
+            line-height: .98;
+
+            letter-spacing: -4px;
+        }
+
+        .cta-box p {
+            position: relative;
+
+            max-width: 590px;
+
+            margin: 20px auto 30px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 65px 0 30px;
+
+            border-top:
+                1px solid
+                #151515;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr;
+
+            gap: 50px;
+
+            padding-bottom: 40px;
+        }
+
+        .footer-description {
+            max-width: 390px;
+
+            margin-top: 15px;
+
+            color: #5b5b5b;
+
+            font-size: 12px;
+        }
+
+        .footer h4 {
+            margin-bottom: 15px;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .footer a:not(.logo) {
+            display: block;
+
+            margin-bottom: 9px;
+
+            color: #5f5f5f;
+
+            font-size: 11px;
+
+            transition: .2s;
+        }
+
+        .footer a:not(.logo):hover {
+            color: #fff;
+        }
+
+        .copyright {
+            padding-top: 25px;
+
+            border-top:
+                1px solid
+                #171717;
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            color: #4e4e4e;
+
+            font-size: 10px;
+        }
+
+        .copyright a {
+            color: #707070;
+        }
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            z-index: 900;
+
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            color: white;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(37,211,102,.25);
+
+            transition: .25s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.08);
+        }
+
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
+
+        @media(max-width:950px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero-grid,
+            .experience {
+                grid-template-columns: 1fr;
+            }
+
+            .visual {
+                min-height: 500px;
+            }
+
+            .benefits,
+            .products {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .process {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .container {
+                width:
+                    calc(100% - 28px);
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+                letter-spacing: -3px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .visual {
+                min-height: 450px;
+            }
+
+            .device {
+                width: 275px;
+            }
+
+            .device-screen {
+                min-height: 525px;
+            }
+
+            .floating-label {
+                display: none;
+            }
+
+            .demo-pill {
+                bottom: 15px;
+            }
+
+            .statement h2 {
+                letter-spacing: -3px;
+            }
+
+            .benefits,
+            .products,
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 60px 20px;
+            }
+
+            .copyright {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="container header">
+
+        <a href="#" class="logo">
+            <img src="logo-largo.svg" alt="VTURBO">
+        </a>
+
+        <nav>
+
+            <a href="#demonstracao">
+                Demonstração
+            </a>
+
+            <a href="#experiencia">
+                Experiência
+            </a>
+
+            <a href="#solucoes">
+                Soluções
+            </a>
+
+            <a href="#processo">
+                Processo
+            </a>
+
+            <a
+                href="https://wa.me/5541849948782"
+                target="_blank"
+                class="nav-cta"
+            >
+                Começar agora
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    <i></i>
+                    Presença digital profissional
+                </div>
+
+                <h1>
+                    Você já tem uma marca.
+                    Agora ela precisa de uma
+                    <span class="blue">
+                        presença.
+                    </span>
+                </h1>
+
+                <p class="hero-text">
+                    A VTURBO transforma seu nome, sua identidade,
+                    seus serviços e seus contatos em uma experiência
+                    digital que representa você de verdade.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        href="link/demonstracao.html"
+                        class="button button-primary"
+                    >
+                        Experimentar demonstração →
+                    </a>
+
+                    <a
+                        href="#solucoes"
+                        class="button button-secondary"
+                    >
+                        Conhecer soluções
+                    </a>
+
+                </div>
+
+                <div class="hero-proof">
+
+                    <div class="proof">
+                        <strong>48h</strong>
+                        <span>Card Digital</span>
+                    </div>
+
+                    <div class="proof">
+                        <strong>100%</strong>
+                        <span>Responsivo</span>
+                    </div>
+
+                    <div class="proof">
+                        <strong>1 link</strong>
+                        <span>Sua presença</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="visual">
+
+                <div class="visual-glow"></div>
+
+                <div class="floating-label one">
+                    ✦ Sua identidade
+                </div>
+
+                <div class="floating-label two">
+                    ↗ Seu WhatsApp
+                </div>
+
+                <div class="device">
+
+                    <div class="device-screen">
+
+                        <div class="device-top">
+
+                            <div class="device-avatar">
+                                V
+                            </div>
+
+                            <h3>
+                                Seu Nome
+                            </h3>
+
+                            <p>
+                                Sua profissão · Sua empresa
+                            </p>
+
+                        </div>
+
+                        <div class="device-buttons">
+
+                            <div class="device-button primary">
+                                💬 Falar no WhatsApp
+                            </div>
+
+                            <div class="device-button">
+                                📞 Ligar agora
+                            </div>
+
+                            <div class="device-button">
+                                📸 Instagram
+                            </div>
+
+                            <div class="device-button">
+                                💼 Conhecer serviços
+                            </div>
+
+                            <div class="device-button">
+                                🌐 Meu site
+                            </div>
+
+                            <div class="device-button">
+                                📍 Localização
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="demo-pill">
+                    TOQUE PARA VER A DEMONSTRAÇÃO →
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STATEMENT
+    ====================================================== -->
+
+    <section class="statement">
+
+        <div class="container statement-inner">
+
+            <small>
+                Não é só um link.
+            </small>
+
+            <h2>
+                É o primeiro lugar onde
+                seu cliente encontra
+                <span>você.</span>
+            </h2>
+
+            <p>
+                Quando alguém recebe seu contato, sua presença
+                digital pode ser o primeiro contato visual com
+                sua marca. Faça esse momento valer.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DEMONSTRAÇÃO
+    ====================================================== -->
+
+    <section
+        class="dark"
+        id="demonstracao"
+    >
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="label">
+                    Veja funcionando
+                </span>
+
+                <h2>
+                    Antes de imaginar,
+                    experimente.
+                </h2>
+
+                <p>
+                    Criamos uma demonstração para você entender
+                    exatamente como um Card Digital pode apresentar
+                    sua marca.
+                </p>
+
+            </div>
+
+
+            <div class="experience">
+
+                <div class="experience-copy">
+
+                    <h2>
+                        Seu cliente abre.
+                        <br>
+                        <span style="color:#555;">
+                            E entende.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Em poucos segundos, ele consegue descobrir
+                        quem você é, o que você faz e como falar
+                        com você.
+                    </p>
+
+                    <ul class="experience-list">
+
+                        <li>
+                            Seu nome e sua profissão
+                        </li>
+
+                        <li>
+                            WhatsApp em destaque
+                        </li>
+
+                        <li>
+                            Serviços apresentados
+                        </li>
+
+                        <li>
+                            Redes sociais conectadas
+                        </li>
+
+                        <li>
+                            Informações organizadas
+                        </li>
+
+                    </ul>
+
+                    <div style="margin-top:30px;">
+
+                        <a
+                            href="link/demonstracao.html"
+                            class="button button-primary"
+                        >
+                            Abrir Card Digital →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="journey">
+
+                    <div class="journey-screen">
+
+                        <div class="journey-title">
+
+                            <strong>
+                                A experiência do seu cliente
+                            </strong>
+
+                            <span>
+                                VTURBO
+                            </span>
+
+                        </div>
+
+
+                        <div class="journey-step">
+
+                            <div class="journey-icon">
+                                🔗
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Ele recebe seu link
+                                </h4>
+
+                                <p>
+                                    WhatsApp, Instagram,
+                                    QR Code ou qualquer canal.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-step">
+
+                            <div class="journey-icon">
+                                👤
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Ele conhece você
+                                </h4>
+
+                                <p>
+                                    Nome, profissão, empresa
+                                    e apresentação.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-step">
+
+                            <div class="journey-icon">
+                                💼
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Ele entende seu trabalho
+                                </h4>
+
+                                <p>
+                                    Serviços, diferenciais
+                                    e informações.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="journey-step">
+
+                            <div class="journey-icon">
+                                💬
+                            </div>
+
+                            <div>
+                                <h4>
+                                    Ele entra em contato
+                                </h4>
+
+                                <p>
+                                    Um toque e a conversa começa.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BENEFÍCIOS
+    ====================================================== -->
+
+    <section id="beneficios">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="label">
+                    O que você ganha
+                </span>
+
+                <h2>
+                    Uma presença pensada
+                    para ser lembrada.
+                </h2>
+
+                <p>
+                    Não basta estar online. É preciso fazer sentido
+                    quando alguém chegar até você.
+                </p>
+
+            </div>
+
+
+            <div class="benefits">
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        WhatsApp direto
+                    </h3>
+
+                    <p>
+                        Reduza o caminho entre conhecer
+                        você e iniciar uma conversa.
+                    </p>
+
+                </article>
+
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        Sua identidade
+                    </h3>
+
+                    <p>
+                        Um visual criado para combinar
+                        com sua marca e seu posicionamento.
+                    </p>
+
+                </article>
+
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        Mobile First
+                    </h3>
+
+                    <p>
+                        Desenvolvido para funcionar muito bem
+                        no dispositivo que seu cliente mais usa.
+                    </p>
+
+                </article>
+
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+                        🔗
+                    </div>
+
+                    <h3>
+                        Um único endereço
+                    </h3>
+
+                    <p>
+                        Coloque tudo que importa em um lugar
+                        simples de compartilhar.
+                    </p>
+
+                </article>
+
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Experiência rápida
+                    </h3>
+
+                    <p>
+                        Estrutura leve, objetiva e pensada
+                        para facilitar a navegação.
+                    </p>
+
+                </article>
+
+
+                <article class="benefit">
+
+                    <div class="benefit-icon">
+                        🚀
+                    </div>
+
+                    <h3>
+                        Pronto para divulgar
+                    </h3>
+
+                    <p>
+                        Receba sua página e comece a compartilhar
+                        sua presença imediatamente.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SOLUÇÕES
+    ====================================================== -->
+
+    <section
+        class="dark"
+        id="solucoes"
+    >
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="label">
+                    Soluções VTURBO
+                </span>
+
+                <h2>
+                    Comece pequeno.
+                    Cresça quando quiser.
+                </h2>
+
+                <p>
+                    Uma solução para cada momento da sua presença
+                    digital.
+                </p>
+
+            </div>
+
+
+            <div class="products">
+
+                <article class="product featured">
+
+                    <div class="badge">
+                        Mais escolhido
+                    </div>
+
+                    <small>
+                        01 / Presença
+                    </small>
+
+                    <h3>
+                        Card Digital
+                    </h3>
+
+                    <p class="product-description">
+                        Seu perfil profissional completo,
+                        pronto para ser compartilhado.
+                    </p>
+
+                    <div class="price">
+                        R$ 297
+                        <span>/ projeto</span>
+                    </div>
+
+                    <ul>
+                        <li>Design personalizado</li>
+                        <li>WhatsApp</li>
+                        <li>Redes sociais</li>
+                        <li>Serviços</li>
+                        <li>Hospedagem</li>
+                        <li>Entrega em até 48h</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/5541849948782"
+                        target="_blank"
+                        class="button button-primary"
+                    >
+                        Quero meu Card
+                    </a>
+
+                </article>
+
+
+                <article class="product">
+
+                    <small>
+                        02 / Conversão
+                    </small>
+
+                    <h3>
+                        Landing Page
+                    </h3>
+
+                    <p class="product-description">
+                        Uma página estratégica para
+                        apresentar sua empresa e gerar contatos.
+                    </p>
+
+                    <div class="price">
+                        R$ 599
+                        <span>/ projeto</span>
+                    </div>
+
+                    <ul>
+                        <li>Design exclusivo</li>
+                        <li>Hero profissional</li>
+                        <li>Serviços</li>
+                        <li>CTA para WhatsApp</li>
+                        <li>Formulário</li>
+                        <li>SEO básico</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/5541849948782"
+                        target="_blank"
+                        class="button button-secondary"
+                    >
+                        Quero minha Landing
+                    </a>
+
+                </article>
+
+
+                <article class="product">
+
+                    <small>
+                        03 / Completo
+                    </small>
+
+                    <h3>
+                        Site Premium
+                    </h3>
+
+                    <p class="product-description">
+                        Uma experiência completa para
+                        empresas que querem se posicionar.
+                    </p>
+
+                    <div class="price">
+                        R$ 1.427
+                        <span>/ projeto</span>
+                    </div>
+
+                    <ul>
+                        <li>Design exclusivo</li>
+                        <li>Múltiplas seções</li>
+                        <li>Serviços e produtos</li>
+                        <li>Sobre a empresa</li>
+                        <li>Contato</li>
+                        <li>SEO básico</li>
+                    </ul>
+
+                    <a
+                        href="https://wa.me/5541849948782"
+                        target="_blank"
+                        class="button button-secondary"
+                    >
+                        Quero meu Site
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROCESSO
+    ====================================================== -->
+
+    <section id="processo">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="label">
+                    Como acontece
+                </span>
+
+                <h2>
+                    Da ideia para
+                    o seu link.
+                </h2>
+
+            </div>
+
+
+            <div class="process">
+
+                <article class="step">
+
+                    <span class="step-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Você conta
+                    </h3>
+
+                    <p>
+                        Envie suas informações,
+                        referências e objetivos.
+                    </p>
+
+                </article>
+
+
+                <article class="step">
+
+                    <span class="step-number">
+                        02
+                    </span>
+
+                    <h3>
+                        A VTURBO cria
+                    </h3>
+
+                    <p>
+                        Transformamos tudo em uma
+                        experiência visual.
+                    </p>
+
+                </article>
+
+
+                <article class="step">
+
+                    <span class="step-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Você aprova
+                    </h3>
+
+                    <p>
+                        Conferimos os detalhes
+                        e refinamos o resultado.
+                    </p>
+
+                </article>
+
+
+                <article class="step">
+
+                    <span class="step-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Você divulga
+                    </h3>
+
+                    <p>
+                        Seu projeto fica pronto
+                        para ganhar a internet.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <h2>
+                    Seu trabalho já existe.
+                    Agora deixe sua presença
+                    mostrar isso.
+                </h2>
+
+                <p>
+                    Comece pelo Card Digital ou converse
+                    com a VTURBO sobre uma solução maior.
+                </p>
+
+                <a
+                    href="https://wa.me/5541849948782"
+                    target="_blank"
+                    class="button button-primary"
+                >
+                    Quero começar →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <a href="#" class="logo">
+                    <img src="logo-largo.svg" alt="VTURBO">
+                </a>
+
+                <p class="footer-description">
+                    Presença digital profissional para
+                    pessoas, profissionais e empresas.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Soluções
+                </h4>
+
+                <a href="link/demonstracao.html">
+                    Demonstração
+                </a>
+
+                <a href="#solucoes">
+                    Card Digital
+                </a>
+
+                <a href="#solucoes">
+                    Landing Page
+                </a>
+
+                <a href="#solucoes">
+                    Site Premium
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contato
+                </h4>
+
+                <a
+                    href="https://wa.me/5541849948782"
+                    target="_blank"
+                >
+                    WhatsApp
+                </a>
+
+                <a href="mailto:contato@vturbo.com.br">
+                    E-mail
+                </a>
+
+                <a href="link/demonstracao.html">
+                    Ver demonstração
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <span>
+                © 2026 VTURBO. Todos os direitos reservados.
+            </span>
+
+            <a
+                href="https://multipagemel.pages.dev/"
+                target="_blank"
+            >
+                Multipage Mel - Criação de Sites
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<a
+    href="https://wa.me/5541849948782"
+    target="_blank"
+    class="whatsapp"
+    aria-label="Falar com a VTURBO pelo WhatsApp"
+>
+    ☎
+</a>
+
+
+</body>
+</html>

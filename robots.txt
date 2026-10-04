@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vturbo.pages.dev/sitemap.xml
