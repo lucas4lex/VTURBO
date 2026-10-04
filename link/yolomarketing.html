@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yolo Marketing — Sua marca. Seu momento.</title>
+
+    <meta name="description" content="Yolo Marketing — Sua marca. Seu momento. Organização, criatividade e comunicação para fortalecer a presença digital da sua empresa.">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #111111;
+            --card: #191919;
+            --card-2: #202020;
+            --pink: #e6b8b8;
+            --pink-light: #f4dddd;
+            --pink-dark: #b98787;
+            --white: #ffffff;
+            --muted: #a9a9a9;
+            --border: rgba(230, 184, 184, .14);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(230,184,184,.12), transparent 32%),
+                var(--bg);
+            color: var(--white);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* VOLTAR */
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #bdbdbd;
+            font-size: 13px;
+            transition: .25s;
+        }
+
+        .back:hover {
+            color: var(--pink);
+        }
+
+        .back span {
+            font-size: 18px;
+        }
+
+        .online {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #999;
+            font-size: 11px;
+        }
+
+        .online-dot {
+            width: 7px;
+            height: 7px;
+            background: #78d89b;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(120,216,155,.5);
+        }
+
+        /* PERFIL */
+
+        .profile {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(230,184,184,.15),
+                    transparent 45%
+                ),
+                var(--card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 34px 22px 27px;
+            box-shadow: 0 25px 70px rgba(0,0,0,.35);
+        }
+
+        .profile::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(230,184,184,.07);
+            filter: blur(8px);
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo {
+            position: relative;
+            z-index: 1;
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 18px;
+            border-radius: 28px;
+            background: var(--pink);
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: 900;
+            font-family: Georgia, serif;
+            box-shadow:
+                0 15px 35px rgba(230,184,184,.18),
+                inset 0 0 0 1px rgba(255,255,255,.35);
+        }
+
+        .profile h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 27px;
+            line-height: 1.1;
+            margin-bottom: 7px;
+            letter-spacing: -.7px;
+        }
+
+        .subtitle {
+            position: relative;
+            z-index: 1;
+            color: var(--pink);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            position: relative;
+            z-index: 1;
+            color: #8f8f8f;
+            font-size: 12px;
+        }
+
+        /* AÇÕES */
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-top: 12px;
+        }
+
+        .action {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            min-height: 74px;
+            padding: 11px 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            transition: .25s ease;
+        }
+
+        .action:hover {
+            transform: translateY(-3px);
+            border-color: rgba(230,184,184,.4);
+            background: #1e1e1e;
+        }
+
+        .action-icon {
+            font-size: 20px;
+        }
+
+        .action strong {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .action small {
+            font-size: 9px;
+            color: #777;
+        }
+
+        /* SEÇÕES */
+
+        .section {
+            margin-top: 12px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 23px 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            margin-bottom: 13px;
+        }
+
+        .section p {
+            color: #b0b0b0;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        .highlight {
+            color: var(--pink);
+        }
+
+        /* YOLO */
+
+        .yolo-box {
+            background:
+                linear-gradient(135deg, rgba(230,184,184,.12), transparent),
+                #171717;
+            border: 1px solid rgba(230,184,184,.2);
+            border-radius: 19px;
+            padding: 20px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .yolo-word {
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: var(--pink);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .yolo-meaning {
+            color: #aaa;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+        }
+
+        /* PILARES */
+
+        .pillars {
+            display: grid;
+            gap: 9px;
+            margin-top: 15px;
+        }
+
+        .pillar {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 13px;
+            background: #151515;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 15px;
+        }
+
+        .pillar-icon {
+            width: 37px;
+            height: 37px;
+            border-radius: 11px;
+            background: rgba(230,184,184,.1);
+            color: var(--pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 17px;
+        }
+
+        .pillar strong {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 1px;
+        }
+
+        .pillar span {
+            display: block;
+            color: #777;
+            font-size: 10px;
+        }
+
+        /* FRASE */
+
+        .quote {
+            text-align: center;
+            padding: 28px 20px;
+            background:
+                linear-gradient(135deg, rgba(230,184,184,.13), transparent),
+                var(--card);
+        }
+
+        .quote-mark {
+            color: var(--pink);
+            font-size: 38px;
+            line-height: .6;
+            margin-bottom: 12px;
+        }
+
+        .quote p {
+            color: #ddd;
+            font-size: 17px;
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        /* CONTATOS */
+
+        .contact-list {
+            display: grid;
+            gap: 9px;
+            margin-top: 14px;
+        }
+
+        .contact {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 14px;
+            border-radius: 16px;
+            background: #151515;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .25s;
+        }
+
+        .contact:hover {
+            border-color: rgba(230,184,184,.35);
+            transform: translateX(2px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(230,184,184,.1);
+            color: var(--pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-info strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .contact-info span {
+            display: block;
+            color: #7d7d7d;
+            font-size: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin-top: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            background: var(--pink);
+            color: #1d1d1d;
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(230,184,184,.1);
+        }
+
+        .cta h2 {
+            font-size: 20px;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .cta p {
+            color: #574848;
+            font-size: 12px;
+            margin-bottom: 17px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 50px;
+            border-radius: 14px;
+            background: #171717;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #242424;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            text-align: center;
+            padding: 25px 10px 12px;
+            color: #666;
+            font-size: 10px;
+        }
+
+        footer strong {
+            display: block;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        footer a {
+            color: var(--pink);
+        }
+
+        /* DESKTOP */
+
+        @media (min-width: 700px) {
+            .page {
+                padding-top: 28px;
+                padding-bottom: 40px;
+            }
+
+            .profile {
+                padding-top: 42px;
+                padding-bottom: 34px;
+            }
+
+            .section {
+                padding: 27px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="page">
+
+    <!-- TOPO -->
+    <div class="topbar">
+        <a href="../index.html" class="back">
+            <span>‹</span>
+            Voltar para VTURBO
+        </a>
+
+        <div class="online">
+            <span class="online-dot"></span>
+            Presença digital
+        </div>
+    </div>
+
+
+    <!-- PERFIL -->
+    <section class="profile">
+
+        <div class="logo">Y</div>
+
+        <h1>Yolo Marketing</h1>
+
+        <div class="subtitle">
+            Sua marca. Seu momento.
+        </div>
+
+        <div class="location">
+            Marketing & Presença Digital
+        </div>
+
+    </section>
+
+
+    <!-- AÇÕES -->
+    <div class="actions">
+
+        <a
+            href="https://wa.me/5541985241192"
+            target="_blank"
+            class="action"
+        >
+            <div class="action-icon">💬</div>
+            <strong>WhatsApp</strong>
+            <small>Fale conosco</small>
+        </a>
+
+        <a
+            href="mailto:gestaoyolo@gmail.com"
+            class="action"
+        >
+            <div class="action-icon">✉️</div>
+            <strong>E-mail</strong>
+            <small>Envie uma mensagem</small>
+        </a>
+
+        <a
+            href="https://www.instagram.com/yolomarketingg/"
+            target="_blank"
+            class="action"
+        >
+            <div class="action-icon">◎</div>
+            <strong>Instagram</strong>
+            <small>@yolomarketingg</small>
+        </a>
+
+    </div>
+
+
+    <!-- SOBRE -->
+    <section class="section">
+
+        <h2 class="section-title">
+            Sobre a Yolo
+        </h2>
+
+        <p>
+            A <span class="highlight">Yolo Marketing</span> trabalha para
+            transformar a presença digital de empresas em uma extensão
+            profissional da própria marca.
+        </p>
+
+        <p style="margin-top: 12px;">
+            Nossa proposta é simples: unir organização, criatividade e
+            comunicação para que sua empresa tenha uma presença digital
+            mais consistente.
+        </p>
+
+    </section>
+
+
+    <!-- YOLO -->
+    <section class="section">
+
+        <h2 class="section-title">
+            O significado de Yolo
+        </h2>
+
+        <p>
+            Uma ideia que representa movimento, autenticidade e a vontade
+            de aproveitar cada oportunidade.
+        </p>
+
+        <div class="yolo-box">
+            <div class="yolo-word">YOLO</div>
+
+            <div class="yolo-meaning">
+                You Only Live Once
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PILARES -->
+    <section class="section">
+
+        <h2 class="section-title">
+            O que guia nosso trabalho
+        </h2>
+
+        <div class="pillars">
+
+            <div class="pillar">
+                <div class="pillar-icon">◈</div>
+
+                <div>
+                    <strong>Organização</strong>
+                    <span>Estratégia e consistência</span>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">✦</div>
+
+                <div>
+                    <strong>Criatividade</strong>
+                    <span>Ideias que valorizam sua marca</span>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">↗</div>
+
+                <div>
+                    <strong>Comunicação</strong>
+                    <span>Mensagem clara e profissional</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FRASE -->
+    <section class="section quote">
+
+        <div class="quote-mark">“</div>
+
+        <p>
+            Porque marketing não precisa ser complicado.
+            Precisa fazer sentido para o seu negócio.
+        </p>
+
+    </section>
+
+
+    <!-- CONTATO -->
+    <section class="section">
+
+        <h2 class="section-title">
+            Entre em contato
+        </h2>
+
+        <div class="contact-list">
+
+            <a
+                href="https://wa.me/5541985241192"
+                target="_blank"
+                class="contact"
+            >
+                <div class="contact-icon">💬</div>
+
+                <div class="contact-info">
+                    <strong>WhatsApp</strong>
+                    <span>(41) 98524-1192</span>
+                </div>
+            </a>
+
+
+            <a
+                href="mailto:gestaoyolo@gmail.com"
+                class="contact"
+            >
+                <div class="contact-icon">✉</div>
+
+                <div class="contact-info">
+                    <strong>E-mail</strong>
+                    <span>gestaoyolo@gmail.com</span>
+                </div>
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/yolomarketingg/"
+                target="_blank"
+                class="contact"
+            >
+                <div class="contact-icon">◎</div>
+
+                <div class="contact-info">
+                    <strong>Instagram</strong>
+                    <span>@yolomarketingg</span>
+                </div>
+            </a>
+
+
+            <a
+                href="https://yolomarketing.pages.dev/"
+                target="_blank"
+                class="contact"
+            >
+                <div class="contact-icon">↗</div>
+
+                <div class="contact-info">
+                    <strong>Site oficial</strong>
+                    <span>yolomarketing.pages.dev</span>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <h2>
+            Sua marca merece presença.
+        </h2>
+
+        <p>
+            Vamos transformar sua comunicação em algo que faça sentido.
+        </p>
+
+        <a
+            href="https://wa.me/5541985241192?text=Olá%20Yolo%20Marketing!%20Vim%20pela%20demonstração%20da%20VTURBO."
+            target="_blank"
+            class="cta-button"
+        >
+            Falar com a Yolo Marketing →
+        </a>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <strong>Yolo Marketing</strong>
+
+        Sua marca. Seu momento.
+
+        <br><br>
+
+        <a
+            href="https://multipagemel.pages.dev/"
+            target="_blank"
+        >
+            Multipage Mel - Criação de Sites
+        </a>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
