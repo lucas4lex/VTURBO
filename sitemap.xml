@@ -14,6 +14,15 @@
 
     </url>
 
+    <url>
+
+        <loc>https://vturbo.pages.dev/link/</loc>
+
+        <changefreq>monthly</changefreq>
+
+        <priority>0.2</priority>
+
+    </url>
 
     <url>
 
