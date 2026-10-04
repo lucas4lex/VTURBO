@@ -23,6 +23,16 @@
         <priority>0.2</priority>
 
     </url>
+    
+    <url>
+
+        <loc>https://vturbo.pages.dev/link/yolomarketing.html</loc>
+
+        <changefreq>year</changefreq>
+
+        <priority>0.2</priority>
+
+    </url>
 
     <url>
 
