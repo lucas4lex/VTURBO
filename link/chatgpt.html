@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ChatGPT — Seu assistente de IA</title>
+
+    <meta
+        name="description"
+        content="ChatGPT — um assistente de inteligência artificial para pensar, escrever, estudar, programar, analisar e criar."
+    >
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0d0d0d;
+            --card: #151515;
+            --card2: #1b1b1b;
+            --white: #fff;
+            --muted: #999;
+            --soft: #666;
+            --green: #10a37f;
+            --green-light: #42cfa9;
+            --border: rgba(255,255,255,.09);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(16,163,127,.14),
+                    transparent 32%
+                ),
+                var(--bg);
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 520px;
+            margin: auto;
+            padding: 16px;
+        }
+
+        /* TOPO */
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .back {
+            color: #aaa;
+            font-size: 13px;
+            transition: .25s;
+        }
+
+        .back:hover {
+            color: var(--green-light);
+        }
+
+        .back span {
+            font-size: 18px;
+            margin-right: 5px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #777;
+            font-size: 10px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 10px rgba(16,163,127,.7);
+        }
+
+        /* PERFIL */
+
+        .profile {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16,163,127,.16),
+                    transparent 50%
+                ),
+                var(--card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 35px 22px 28px;
+            box-shadow: 0 25px 70px rgba(0,0,0,.4);
+        }
+
+        .profile::after {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            background: rgba(16,163,127,.07);
+            filter: blur(10px);
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo {
+            position: relative;
+            z-index: 1;
+            width: 94px;
+            height: 94px;
+            margin: auto;
+            margin-bottom: 18px;
+            border-radius: 27px;
+            background: #fff;
+            color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 47px;
+            font-weight: 700;
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.35),
+                0 0 0 1px rgba(255,255,255,.25);
+        }
+
+        .profile h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 28px;
+            letter-spacing: -.8px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            position: relative;
+            z-index: 1;
+            color: var(--green-light);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .location {
+            position: relative;
+            z-index: 1;
+            color: #777;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        /* AÇÕES */
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-top: 12px;
+        }
+
+        .action {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            min-height: 76px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: .25s;
+        }
+
+        .action:hover {
+            transform: translateY(-3px);
+            border-color: rgba(16,163,127,.45);
+        }
+
+        .action-icon {
+            font-size: 21px;
+            margin-bottom: 4px;
+        }
+
+        .action strong {
+            font-size: 11px;
+        }
+
+        .action small {
+            color: #666;
+            font-size: 9px;
+        }
+
+        /* SEÇÃO */
+
+        .section {
+            margin-top: 12px;
+            padding: 23px 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.75;
+        }
+
+        .green {
+            color: var(--green-light);
+        }
+
+        /* FRASE */
+
+        .quote {
+            text-align: center;
+            padding: 28px 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(16,163,127,.12),
+                    transparent
+                ),
+                var(--card);
+        }
+
+        .quote-symbol {
+            color: var(--green);
+            font-size: 38px;
+            line-height: .6;
+            margin-bottom: 13px;
+        }
+
+        .quote p {
+            color: #ddd;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        /* RECURSOS */
+
+        .features {
+            display: grid;
+            gap: 9px;
+            margin-top: 15px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            background: #111;
+            border: 1px solid rgba(255,255,255,.06);
+            padding: 13px;
+            border-radius: 15px;
+        }
+
+        .feature-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(16,163,127,.1);
+            color: var(--green-light);
+            flex-shrink: 0;
+            font-size: 17px;
+        }
+
+        .feature strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .feature span {
+            display: block;
+            color: #666;
+            font-size: 10px;
+        }
+
+        /* LINKS */
+
+        .links {
+            display: grid;
+            gap: 9px;
+            margin-top: 14px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            background: #111;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 16px;
+            padding: 14px;
+            transition: .25s;
+        }
+
+        .link-card:hover {
+            transform: translateX(3px);
+            border-color: rgba(16,163,127,.4);
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16,163,127,.1);
+            color: var(--green-light);
+            font-size: 18px;
+        }
+
+        .link-info strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .link-info span {
+            color: #666;
+            font-size: 10px;
+        }
+
+        /* CTA */
+
+        .cta {
+            margin-top: 12px;
+            padding: 24px 20px;
+            border-radius: 24px;
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 20px;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,.78);
+            font-size: 12px;
+            margin-bottom: 17px;
+        }
+
+        .cta-button {
+            width: 100%;
+            min-height: 50px;
+            border-radius: 14px;
+            background: #111;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .cta-button:hover {
+            background: #222;
+            transform: translateY(-2px);
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            text-align: center;
+            padding: 26px 10px 12px;
+            color: #555;
+            font-size: 10px;
+        }
+
+        footer strong {
+            display: block;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        footer a {
+            color: var(--green-light);
+        }
+
+        @media (min-width: 700px) {
+            .page {
+                padding-top: 28px;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="page">
+
+    <!-- TOPO -->
+
+    <div class="topbar">
+
+        <a href="../index.html" class="back">
+            <span>‹</span>
+            Voltar para VTURBO
+        </a>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Inteligência Artificial
+        </div>
+
+    </div>
+
+
+    <!-- PERFIL -->
+
+    <section class="profile">
+
+        <div class="logo">
+            ✦
+        </div>
+
+        <h1>ChatGPT</h1>
+
+        <div class="subtitle">
+            Seu assistente de IA
+        </div>
+
+        <div class="location">
+            OpenAI · Inteligência Artificial
+        </div>
+
+    </section>
+
+
+    <!-- AÇÕES -->
+
+    <div class="actions">
+
+        <a
+            href="https://chatgpt.com/"
+            target="_blank"
+            class="action"
+        >
+            <div class="action-icon">✦</div>
+            <strong>Conversar</strong>
+            <small>ChatGPT</small>
+        </a>
+
+        <a
+            href="https://chatgpt.com/download/"
+            target="_blank"
+            class="action"
+        >
+            <div class="action-icon">↓</div>
+            <strong>Download</strong>
+            <small>Aplicativos</small>
+        </a>
+
+        <a
+            href="https://help.openai.com/"
+            target="_blank"
+            class="action"
+        >
+            <div class="action-icon">?</div>
+            <strong>Ajuda</strong>
+            <small>Central</small>
+        </a>
+
+    </div>
+
+
+    <!-- SOBRE -->
+
+    <section class="section">
+
+        <h2>Sobre o ChatGPT</h2>
+
+        <p>
+            O <span class="green">ChatGPT</span> é um assistente de
+            inteligência artificial conversacional desenvolvido pela
+            OpenAI.
+        </p>
+
+        <p style="margin-top:12px;">
+            Ele pode ajudar a pensar, escrever, estudar, planejar,
+            programar, analisar informações e criar conteúdo a partir
+            das instruções que você fornece.
+        </p>
+
+    </section>
+
+
+    <!-- FRASE -->
+
+    <section class="section quote">
+
+        <div class="quote-symbol">✦</div>
+
+        <p>
+            Uma conversa pode ser o começo de uma grande ideia.
+        </p>
+
+    </section>
+
+
+    <!-- RECURSOS -->
+
+    <section class="section">
+
+        <h2>O que posso fazer?</h2>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✎
+                </div>
+
+                <div>
+                    <strong>Escrever e criar</strong>
+                    <span>Textos, ideias, roteiros e conteúdo</span>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◈
+                </div>
+
+                <div>
+                    <strong>Estudar e aprender</strong>
+                    <span>Explicações, exercícios e pesquisas</span>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    &lt;/&gt;
+                </div>
+
+                <div>
+                    <strong>Programar</strong>
+                    <span>Código, lógica e desenvolvimento</span>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◎
+                </div>
+
+                <div>
+                    <strong>Analisar</strong>
+                    <span>Arquivos, imagens, dados e informações</span>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ↗
+                </div>
+
+                <div>
+                    <strong>Planejar</strong>
+                    <span>Projetos, tarefas e decisões</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LINKS OFICIAIS -->
+
+    <section class="section">
+
+        <h2>Links oficiais</h2>
+
+        <div class="links">
+
+            <a
+                href="https://chatgpt.com/"
+                target="_blank"
+                class="link-card"
+            >
+
+                <div class="link-icon">
+                    ✦
+                </div>
+
+                <div class="link-info">
+                    <strong>ChatGPT</strong>
+                    <span>chatgpt.com</span>
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://openai.com/"
+                target="_blank"
+                class="link-card"
+            >
+
+                <div class="link-icon">
+                    ◉
+                </div>
+
+                <div class="link-info">
+                    <strong>OpenAI</strong>
+                    <span>openai.com</span>
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://help.openai.com/"
+                target="_blank"
+                class="link-card"
+            >
+
+                <div class="link-icon">
+                    ?
+                </div>
+
+                <div class="link-info">
+                    <strong>Central de Ajuda</strong>
+                    <span>help.openai.com</span>
+                </div>
+
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/chatgpt/"
+                target="_blank"
+                class="link-card"
+            >
+
+                <div class="link-icon">
+                    ◎
+                </div>
+
+                <div class="link-info">
+                    <strong>Instagram</strong>
+                    <span>@chatgpt</span>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>
+            Vamos começar?
+        </h2>
+
+        <p>
+            Abra o ChatGPT e comece uma conversa.
+        </p>
+
+        <a
+            href="https://chatgpt.com/"
+            target="_blank"
+            class="cta-button"
+        >
+            Abrir o ChatGPT →
+        </a>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <strong>ChatGPT · OpenAI</strong>
+
+        Inteligência artificial para conversar, criar e resolver problemas.
+
+        <br><br>
+
+        <a
+            href="https://multipagemel.pages.dev/"
+            target="_blank"
+        >
+            Multipage Mel - Criação de Sites
+        </a>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
